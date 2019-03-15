@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R Programming"
 author: "Tom Paskhalis"
-date: "04/03/2019"
+date: "15/03/2019"
 output: 
   ioslides_presentation:
     widescreen: true
@@ -38,9 +38,9 @@ div.footnotes {
 
 # R basics
 
-## <footnote content="The original version of the slides was created by [Jack Blumenau](https://www.jackblumenau.com/)">Materials</footnote>
+## Materials
 
-You can find the materials for today's course on my website. Either go to the Moodle page for MY591 and click on the links, or:
+You can find the <footnote content="The original version of the slides was created by Jack Blumenau">materials</footnote> for today's course on my website. Either go to the Moodle page for MY591 and click on the links, or:
 
   - Assignment: [tom.paskhal.is/MY591/exercises.html](https://tom.paskhal.is/MY591/exercises.html)
   - Slides: [tom.paskhal.is/MY591/intro_to_r.html](https://tom.paskhal.is/MY591/intro_to_r.html)
@@ -64,6 +64,15 @@ On the other hand:
 - R has a steep(er) learning curve
 
 
+## Popularity of data analysis software
+
+```{r out.width="80%", out.height="80%",fig.align="center",echo=FALSE}
+knitr::include_graphics("../plots/software_trends.png")
+```
+
+More discussion on this can be found [here](http://lindeloev.net/spss-is-dying/).
+
+
 ## R and RStudio
 
 - As in STATA, you can either use a script (do file) to save commands and then run them, or write commands directly into the console
@@ -75,7 +84,9 @@ On the other hand:
     - Easy data overview
     - Project management
 
+
 # RStudio demonstration
+
 
 ## Basic mathematical operations in R
 
@@ -85,6 +96,7 @@ On the other hand:
 6 / 2
 4 * 4
 ```
+
 
 ## Basic mathematical operations in R
 
@@ -99,6 +111,7 @@ exp(<number>)
 sqrt(<number>)
 ```
 
+
 ## Basic operations in R
 
 R also understands logical operators:
@@ -112,6 +125,7 @@ R also understands logical operators:
 - `&` : and
 - `|` : or
 
+
 ## R `objects`
 
 - The entities that R creates and manipulates are known as objects
@@ -121,18 +135,15 @@ R also understands logical operators:
 
 ```{r}
 x1 <- 10
-x1
+print(x1)
 ```
 
 ```{r}
 x2 <- 4
 x3 <- x1 - x2
-x3
+print(x3)
 ```
 
-```{r}
-ls(.GlobalEnv)
-```
 
 # Data Structures
 
@@ -146,8 +157,10 @@ We use the `c()` function to concatenate observations into a single vector.
 
 ```{r}
 num_vec <- c(150, 178, 67.7, 905, 12)
+print(num_vec)
 num_vec
 ```
+
 
 ## `vector` - the basic building block of R.
 
@@ -163,6 +176,7 @@ length(char_vec)
 char_scalar <- "banana"
 length(char_scalar)
 ```
+
 
 ## `vector` - the basic building block of R.
 
@@ -190,6 +204,7 @@ fac_vec
 as.numeric(fac_vec)
 ```
 
+
 ## `vector` - the basic building block of R.
 
 - Date
@@ -215,6 +230,7 @@ char_vec
 char_vec[1:3]
 ```
 
+
 ## `vector` subsetting
 
 Instead of passing indices, it is also possible to use a logical vector to specify the required elements:
@@ -225,6 +241,7 @@ Instead of passing indices, it is also possible to use a logical vector to speci
 log_vec
 char_vec[log_vec]
 ```
+
 
 ## `vector` operations
 
@@ -240,6 +257,7 @@ fib[1:7]
 fib[2:8]
 fib[1:7] + fib[2:8]
 ```
+
 
 ## `vector` operations
 
@@ -290,6 +308,7 @@ Individual elements of a `list` object can be subset using `$` or `[[` operators
 l$element2
 l[[2]]
 ```
+
 
 ## `data.frame` - the workhorse of data analysis.
 
@@ -413,8 +432,8 @@ Note that the function itself, and the result returned by the function are both 
 R has an inbuilt help facility which provides more information about any function:
 
 ```{r}
-help(summary)
 ?summary
+help(summary)
 ```
 
 The quality of the help varies *hugely* across packages.
@@ -859,7 +878,7 @@ Or we can plot them:
 ```{r, eval = F}
 ggplot(r2.compare, aes(x = model, y = r.squared))+
   geom_point(size = 4) +
-  # Use `expression` to add 2 as superscript to R
+  # Use `expression` to add 2 as a superscript to R
   ggtitle(expression(paste(R^{2}, " ", "Comparison"))) +
   theme_bw()
 ```
@@ -1187,6 +1206,7 @@ rnorm() # Generate random numbers from a normal distribution
 runif() # Generate random numbers from a uniform distribution
 ```
 
+
 ## Other helpful packages
 
 - Check [tidyverse](https://www.tidyverse.org/) collection of packages:
@@ -1210,11 +1230,12 @@ library("zoo")
 library("lubridate")
 ```
 
+
 ## Further reading
 
-- Crawley, M. J. (2012). *The R Book* (2nd edition). Hoboken, NJ: Wiley-Blackwell.
-- Dalgaard, P. (2008). Introductory Statistics with R. 2nd Ed. Heidelberg: Springer.
-- Fox, J. (2018). *An R Companion to Applied Regression* (3rd edition). Thousand Oaks, CA: Sage Publications.
+- Crawley, M. J. (2012). *The R Book* 2nd Ed. Hoboken, NJ: Wiley-Blackwell.
+- Dalgaard, P. (2008). *Introductory Statistics with R* 2nd Ed. Heidelberg: Springer.
+- Fox, J. (2018). *An R Companion to Applied Regression* 3rd Ed. Thousand Oaks, CA: Sage Publications.
 - Matloff, N. (2011). *The Art of R Programming*. San Francisco: No Starch Press.
 - Wickham, H. (2014). *Advanced R Programming*. Chapman & Hall/CRC.
 - Wickham, H., & Grolemund, G. (2017). *R for Data Science*. Sebastopol: O’Reilly Media.
