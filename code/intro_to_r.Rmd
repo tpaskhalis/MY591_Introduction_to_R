@@ -103,12 +103,13 @@ More discussion on this can be found [here](http://lindeloev.net/spss-is-dying/)
 - Other typical mathematical functions are also hard-coded:
 
 ```{r, eval=FALSE}
-sum(<numbers>)
-mean(<numbers>)
-median(<numbers>)
-log(<number>)
-exp(<number>)
-sqrt(<number>)
+sum(<numbers>) # Sum
+mean(<numbers>) # Mean
+median(<numbers>) # Median
+sd(<numbers>) # Standard Deviation
+log(<number>) # Logarithm
+exp(<number>) # Exponent
+sqrt(<number>) # Square root
 ```
 
 
@@ -520,6 +521,8 @@ tail(sim.df) # Last n (six, by default) rows of the data
 str(sim.df) # "Structure" of any R object
 summary(sim.df) # Summary statistics for each of the columns in the data
 dim(sim.df) # Dimensions of data
+mean(sim.df$var) # Mean of a numeric vector
+sd(sim.df$var) # Standard deviation of a numeric vector
 range(sim.df$var) # Range of a numeric vector
 quantile(sim.df$var) # Quantiles of a numeric vector
 ```
@@ -677,6 +680,8 @@ plot(x = sim.df$g, y = sim.df$x)
 A very popular alternative to base R plots is the `ggplot2` library (the *2* in the name refers to the second iteration, which is the standard). This is a separate package (i.e. it is not a part of the base R environment) but is very widely used.
 
   - Based on the Grammar of Graphics data visualisation scheme:
+  
+  Wilkinson, L. (2005). *The Grammar of Graphics* 2nd Ed. Heidelberg: Springer. [https://doi.org/10.1007/0-387-28695-0](https://doi.org/10.1007/0-387-28695-0)
   
   Wickham, H. (2010). A Layered Grammar of Graphics. *Journal of Computational and Graphical Statistics*, 19(1), 3–28. [https://doi.org/10.1198/jcgs.2009.07098](https://doi.org/10.1198/jcgs.2009.07098)
   
@@ -934,8 +939,7 @@ first.layer +
   geom_point(aes(x = sim.df$z,
                  y = residuals(lm.multi.fit)),
              colour = "grey") +
-  labs(x = "z") +
-  theme_bw()
+  labs(x = "z")
 ```
 
 
